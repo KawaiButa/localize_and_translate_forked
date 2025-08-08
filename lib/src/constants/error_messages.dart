@@ -6,5 +6,5 @@ class ErrorMessages {
   static final ErrorMessages _instance = ErrorMessages._();
 
   /// [keyNotFound] is the error message when
-  static String keyNotFound(String key) => '$key - 404';
+  static String keyNotFound(String key) => '$key';
 }
