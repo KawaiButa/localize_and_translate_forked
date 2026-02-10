@@ -18,6 +18,11 @@ class DBBox {
 
   /// [openBox] is used to open the box.
   static Future<void> openBox() async {
-    _box = await Hive.openBox<String>(boxName);
+    try {
+      _box = await Hive.openBox<String>(boxName);
+    } catch (e) {
+      await Hive.deleteBoxFromDisk(boxName);
+      _box = await Hive.openBox<String>(boxName);
+    }
   }
 }
